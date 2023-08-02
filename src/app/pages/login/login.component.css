@@ -1,0 +1,17 @@
+img{
+    height: 100px;
+    width: 200px;
+}
+
+.form-control{
+    border: none;
+}
+
+.container-fluid{
+    background-color: rgb(175, 233, 214);
+    height: 91%;
+}
+
+tr{
+    border: 1px;
+}

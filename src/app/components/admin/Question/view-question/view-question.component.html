@@ -1,0 +1,53 @@
+<h1 class="text-center">Question On {{quizTitle | uppercase}} </h1>
+
+<mat-card *ngFor="let question of getAllQuestion; let i = index"  class="m-2">
+
+    <div class="container">
+        <p><b> {{i+1}} </b><span>{{question.content}} </span> </p>
+    </div>
+
+    <div class="row px-5">
+        <div class="col-md-6">
+            <p><b>A)</b><span> {{question.option1}} </span> </p>
+        </div>
+
+        <div class="col-md-6">
+            <p><b>B)</b><span>{{question.option2}} </span> </p>
+        </div>
+
+        <div class="col-md-6">
+            <p><b>C)</b><span>{{question.option3}}</span> </p>
+        </div>
+
+        <div class="col-md-6">
+            <p><b>D)</b><span>{{question.option4}}</span> </p>
+        </div>
+
+
+        <mat-divider class="mt-2"></mat-divider>
+
+
+        <div class="col-md-6 mt-2">
+            <p><b>correct answer:</b><span> {{question.answer}} </span> </p>
+        </div>
+
+
+
+
+        <div>
+            <button mat-raised-button color="primary" class="m-3" [routerLink]="['/admin-dashboard/updateQuestion/' +question.question_id + '/' + question.quiz.title]">
+                Update</button>
+            <button mat-raised-button color="warn" class="m-2" (click)="deletQuestion(question.question_id)"> Delete</button>
+
+        </div>
+
+
+
+    </div>
+</mat-card>
+
+<div class="text-center">
+    <button mat-raised-button color="primary" class="m-3" [routerLink]="['/admin-dashboard/addQuestion/'+quizId +'/' + quizTitle]">Add
+        Question</button>
+
+</div>

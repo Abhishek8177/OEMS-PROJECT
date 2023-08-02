@@ -1,0 +1,8 @@
+.icon{
+    color: white;
+}
+
+.spacer{
+    /* display: flex; */
+    flex: 1 1 auto;
+}

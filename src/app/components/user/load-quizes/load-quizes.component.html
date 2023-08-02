@@ -1,0 +1,36 @@
+<h1 class="text-center">View Quize of the project</h1>
+
+<div class="container-fluid " *ngIf="quizess">
+    <div class="row">
+        <div class="col-md-6 mt-3" *ngFor="let quiz of quizess">
+
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="bgm"></div>
+                    <mat-card-title>{{quiz.title}} </mat-card-title>
+                    <mat-card-subtitle>{{quiz.description}} </mat-card-subtitle>
+                </mat-card-header>
+
+             <div class="mt-3">
+                    <button mat-stroked-button color="primary" class="mx-3">View</button>
+                    <button mat-stroked-button color="primary" [routerLink]="['/user-dashboard/instruction/'+quiz.quiz_id]">Start </button>
+                    <button mat-stroked-button class="mx-3" color="primary"> No of Question {{quiz.numberOfQuestions}}
+                    </button>
+                    <button mat-stroked-button color="primary" class="mx-3">NO of marrk{{quiz.maxMarks}} </button>
+
+
+                </div>
+                <mat-divider class="mt-3"></mat-divider> 
+
+            </mat-card>
+
+            </div>
+        <div class="container" *ngIf="quizess.length == 0">
+            <mat-card>
+                <mat-card-content>
+                    <h1 class="text-center mt-2">This Quiz is not available for this category</h1>
+                </mat-card-content>
+            </mat-card> 
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6 mt-3">
+            <mat-card>
+            <div class="text-center" >
+                <img src="assets/image/profile.jpg" >
+                <h1>{{userdata.firstname}} {{userdata.lastname}} </h1>
+            </div>
+            <table>
+                <thead class="table table-bordered text-center ">
+                    <tr>
+                        <th>User Name</th>
+                        <td>{{userdata.firstname}} </td>
+                    </tr>
+                    <tr>
+                        <th>User Id</th>
+                        <td>{{userdata.id}}</td>
+                    </tr>
+                    <tr>
+                        <th>User Roll</th>
+                        <td>{{userdata.authorities[0].authority}}</td>
+                    </tr>
+                    <tr>
+                        <th>User Status</th>
+                        <td>{{userdata.enabled}}</td>
+                    </tr>
+
+
+                    <tr>
+                        <th>Phone No</th>
+                        <td>{{userdata.phone}} </td>
+                    </tr>
+
+
+                </thead>
+            </table>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+

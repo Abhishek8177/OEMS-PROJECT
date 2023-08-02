@@ -1,0 +1,95 @@
+<div class="container-fluid" *ngIf="!isSubmit">
+    <div class="row">
+        <div class="col-md-2">
+            <mat-card class="mt-5 mx-3">
+                <mat-card-title class="mx-3 mt-3 text-center">
+                    <h2 >Instruction</h2>
+                </mat-card-title>
+                <mat-card-content>
+                    <ul>
+                        <li>Do not refresh the page otherwise you will get the new question.</li><hr>
+                        <li>Do not switch the tab</li><hr>
+                        <li>Do not minimize the window</li>
+                    </ul>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-md-8">
+            <div class="container">
+                <div class="container mt-5">
+                    <h2> {{questions[0].quiz.title}} </h2>
+                </div>
+                <mat-card *ngFor="let question of questions let i=index" class="mt-3">
+                    <mat-card-content  >
+                        <h3><b>Q.{{i+1}} )</b> <span [(ngModel)]="question.content" ></span> {{question.content}} </h3>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <input type="radio" [name]="question.option1" [value]="question.option1" [(ngModel)]="question.givenAnswer"> {{question.option1}}
+                                
+                            </div>
+                            <div class="col-md-6">
+                                <input type="radio" [name]="question.option1" [value]="question.option2" [(ngModel)]="question.givenAnswer">{{question.option2}}
+                                
+                            </div>
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <input type="radio" [name]="question.option1" [value]="question.option3" [(ngModel)]="question.givenAnswer">{{question.option3}}
+                                
+                            </div>
+                            <div class="col-md-6">
+                                <input type="radio" [name]="question.option1" [value]="question.option4" [(ngModel)]="question.givenAnswer">{{question.option4}}
+                                
+                            </div>
+
+                        </div>
+
+                    </mat-card-content>
+
+                </mat-card>
+                <div class="container mt-3 text-center">
+                    <button mat-raised-button color="warn" (click)="submit()">Exam End</button>
+                </div>
+
+            </div>
+            
+        </div>
+        <div class="col-md-2">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Preogress</mat-card-title>
+                    <mat-card-subtitle>Exam will automatically end after the complition of time</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <h2>{{getFormatTime()}} </h2>
+                    <mat-spinner mode="determinate" [value]="(timer/(questions.length*0.30*100))*100"></mat-spinner>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5" *ngIf="isSubmit">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <mat-card>
+                <mat-card-title>
+                    <h1 class=" text-left mt-3 mx-3">Quiz Result </h1>
+                </mat-card-title>
+                <mat-card-content >
+                    <div class="container ">
+                        <h2 class="text-center"> MarksGot      : {{marksGot}}  </h2>
+                        <h2 class="text-center"> Correct Answe : {{correctAnswer}} </h2>
+                        <h2 class="text-center" > attempted    : {{attempted}} </h2>
+     
+                    </div>
+                </mat-card-content>
+                <mat-card-actions class="justify-content-center">
+                    <button mat-raised-button color="primary" class="mx-3" (click)="print()">Print </button>
+                    <button mat-raised-button color="primary" class="mx-2" [routerLink]="['/user-dashboard/0']">Home </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

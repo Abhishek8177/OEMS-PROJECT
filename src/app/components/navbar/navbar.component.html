@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="icon">  
+        <mat-icon>menu_book</mat-icon>
+</button>
+    <span>Exam</span>
+    <span class="spacer"></span>
+
+    <a *ngIf="!isLoggedIn" [routerLink]="'login'"  class="m-3 nav-link">Login</a>
+    <a *ngIf="!isLoggedIn" [routerLink]="'signup'"  class="text-light nav-link">SignUp</a>
+
+<!-- this is for admin section -->
+    <a *ngIf="isLoggedIn && user"  class="m-3 nav-link" mat-button>{{user.username}} </a>
+    <a *ngIf="isLoggedIn"  class="text-light nav-link"mat-button (click)="signOut()" >SignOut</a>
+
+
+
+</mat-toolbar>
+

@@ -1,0 +1,13 @@
+img{
+    height: 100px;
+    width: 130px;
+}
+
+.form-control{
+    border: none;
+}
+
+.container-fluid{
+    background-color: rgb(175, 233, 214);
+    height: 91vh;
+}

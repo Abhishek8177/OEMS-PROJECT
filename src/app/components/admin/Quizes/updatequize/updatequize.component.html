@@ -1,0 +1,50 @@
+<mat-card>
+    <h1 class="mt-2 text-center">Update Quize </h1>
+    <mat-card-content>
+        <div class="container">
+            <div class="row justify-content-center" >
+                <div class="col-8 ">
+                    <form [formGroup]="updatequizes" class="row" >
+                         <mat-form-field  appearance="outline">
+                            <mat-label > Quize Id</mat-label>
+                            <input type="text" formControlName="quiz_id" matInput name="quiz_id" [ngModel]="getAllquiz.quiz_id" >
+                        </mat-form-field> 
+
+                        <mat-form-field  appearance="outline">
+                            <mat-label > title</mat-label>
+                            <input type="text" formControlName="title" matInput name="title" [ngModel]="getAllquiz.title">
+                        </mat-form-field>
+                        <mat-form-field  appearance="outline">
+                            <mat-label > Discription</mat-label>
+                            <textarea type="text" formControlName="description" matInput name="description" [ngModel]="getAllquiz.description" rows="3"></textarea>
+                        </mat-form-field>
+
+                        <mat-form-field class=" col-6" appearance="outline">
+                            <mat-label >Max Marks</mat-label>
+                            <input type="number" formControlName="maxMarks" matInput name="maxMarks" [ngModel]="getAllquiz.maxMarks" >
+                        </mat-form-field>
+                        <mat-form-field class=" col-6" appearance="outline">
+                            <mat-label >No of question</mat-label>
+                            <input type="number" formControlName="numberOfQuestions" matInput name="numberOfQuestions" [ngModel]="getAllquiz.numberOfQuestions" >
+                        </mat-form-field>
+                             
+                        <mat-slide-toggle [checked]="false" formControlName="active" [ngModel]="getAllquiz.active">Active</mat-slide-toggle>
+
+                        <mat-form-field class="mt-2" appearance="outline">
+                            <mat-label >Category Id</mat-label>
+                            <mat-select formControlName="category_id" [ngModel]="getAllquiz.category.category_id">
+                                <mat-option *ngFor="let category of getCategory" [value]="category.category_id"> {{category.title}} </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <div class="text-center">
+                            <button mat-raised-button color="primary" (click)="updatequizesubmit()">submit</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </mat-card-content>
+</mat-card>

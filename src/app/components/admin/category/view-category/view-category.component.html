@@ -1,0 +1,56 @@
+<!-- <mat-card>
+    <mat-list>
+        <h1>All Category here</h1>
+        <mat-list-item *ngFor="let Category of getAllData" >
+        <div class="row">
+            <div class="col-md-6">
+                    <mat-icon matListItemIcon>category</mat-icon>
+                    <div matListItemTitle>{{Category.title}} </div>
+                    <div matListItemLine>{{Category.description}} </div>
+            </div>
+            <div class="col-4">
+                <button mat-raised-button color="primary" class="mx-3" [routerLink]="'/admin-dashboard/updatecategory'">Update Category</button>
+                <button mat-raised-button color="primary">Delet Category</button>
+            </div>
+        </div>
+    </mat-list-item>
+
+        <mat-divider></mat-divider>
+
+    </mat-list>
+    <div class="text-center my-3">
+        <button mat-raised-button color="primary" [routerLink]="'/admin-dashboard/addcategory'">Add Category</button>
+    </div>
+</mat-card> -->
+
+<mat-card>
+    <mat-list>
+        <mat-list-item *ngFor="let Category of getAllData">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <mat-icon matListItemIcon>category</mat-icon>
+                        </div>
+                        <div class="col-md-10">
+                            <div matListItemTitle>{{Category.title | uppercase}} </div>
+                            <div matListItemLine>{{Category.description | uppercase}} </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 text-end">
+                    <button mat-raised-button color="primary" class="mx-3" [routerLink]="['/admin-dashboard/updatecategory/',Category.category_id]">Update Category</button>
+                    <button mat-raised-button color="warn" (click)="deletcategoryData(Category.category_id)">Delet Category</button>
+                </div>
+                <mat-divider class="mt-2"></mat-divider>
+
+            </div>
+
+
+        </mat-list-item>
+    </mat-list>
+    <div class="text-center my-3">
+        <button mat-raised-button color="primary" [routerLink]="'/admin-dashboard/addcategory'">Add Category</button>
+    </div>
+
+</mat-card>
